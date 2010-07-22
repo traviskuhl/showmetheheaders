@@ -43,7 +43,7 @@
 	);
 	
 	// server
-	$server = "#(apache|ngix|yts)#i"; 
+	$server = "#(apache|nginx|yts)#i"; 
 
 	// check for xhr
 	$xhr = filter_input(INPUT_GET,"xhr",FILTER_VALIDATE_BOOLEAN);
@@ -229,7 +229,7 @@
 			header("Content-Type: text/javascript");
 		
 			// exit with json
-			exit( json_encode( array('stat'=>true,'html'=>$html) ) );
+			exit( json_encode( array('stat'=>true,'html'=>$html,'host'=>$parsed['host']) ) );
 			
 		}
 	

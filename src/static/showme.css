@@ -32,11 +32,16 @@
 	border: solid 1px #ccc;
 	margin-left: 5px;
 	padding: 3px;
+		color: #333;	
 }
 
 #doc #hd form input.off {
 	color: #ccc;
 }
+
+	body.prefill #doc #hd form input.off {
+		color: #333;
+	}
 
 #doc #bd #results {
 	width: 0%;
@@ -162,6 +167,11 @@ body.prefill #doc #bd #results {
 body.prefill #doc #bd #leaders {
 	width: 40%;
 }
+
+	body.prefill #doc #bd #leaders ul {
+		width: 95%;
+		text-align: right;
+	}
 
 #ft {
 	position: absolute;

@@ -40,8 +40,9 @@
 		} 
 
 	// our own cool headers
-	header("X-Hello: Thanks for stopping by");
-	header("X-Source-Code: If you want the source code, it's at http://github.com/traviskuhl/showmetheheaders");
+	header("X-Hello: What's more fun than looking at headers");
+	header("X-Source-Code: http://github.com/traviskuhl/showmetheheaders");
+	header("X-Follow-Me-On-Twitter: @traviskuhl");	
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -107,5 +108,18 @@
 			</div>
 		</div>			
 		<script type="text/javascript" src="/static/showme.js"></script>		
+		<script type="text/javascript">
+		
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-123654-5']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>		
 	</body>
 </html>

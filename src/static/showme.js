@@ -1,6 +1,6 @@
 
 // i love you YUI
-YUI().use('node','event','json','anim','io', function(Y) {
+YUI().use('node','event','json','anim','io','node-event-simulate', function(Y) {
  
  	// i'm lazy
  	var $ = Y.one, $j = Y.JSON;
@@ -39,6 +39,9 @@ YUI().use('node','event','json','anim','io', function(Y) {
  					// stop
  					e.halt();
  					
+	 				// set it 
+					$('#hd form input').removeClass('off'); 				 					
+ 					
  					// open
  					$('pre.raw').removeClass('hide');
  					
@@ -48,6 +51,16 @@ YUI().use('node','event','json','anim','io', function(Y) {
  				}
  			},this);
  		
+ 			// check the hash
+ 			if ( window.location.hash.substr(0,4) == '#!q=' ) {
+ 			
+ 				// set it 
+				$('#hd form input').set('value', window.location.hash.substr(4) ).removeClass('off'); 				
+				
+				// submit
+				this.submit();
+ 				
+ 			}
  		
  		},
  		
@@ -55,7 +68,7 @@ YUI().use('node','event','json','anim','io', function(Y) {
  		submit : function(e) {
  		
  			// stop
- 			e.halt();
+ 			if (e) { e.halt(); }
  			
  			// alreayd open
  			if ( !$("#leaders").hasClass('open') ) {
@@ -69,10 +82,8 @@ YUI().use('node','event','json','anim','io', function(Y) {
 	 				'to': {
 	 					'width': '40%'
 	 				},
-	 				'duration': .5 			
+	 				'duration': .3
 	 			});
-
-
 	 			
 	 			// done
 	 			leaders.on('start',function(){ Y.all('#leaders ul').setStyles({'width':'auto','text-align':'right'}); });
@@ -90,7 +101,7 @@ YUI().use('node','event','json','anim','io', function(Y) {
 	 				'to': {
 	 					'width': '60%'
 	 				},
-	 				'duration': .5 			
+	 				'duration': .3
 	 			});
 	 			
 	 			// end
@@ -143,6 +154,9 @@ YUI().use('node','event','json','anim','io', function(Y) {
  					
  						// if stat is good
  						if ( j.stat != true ) { alert("Couldn't finish request"); return }
+ 						
+ 						// host
+ 						window.location.href = "#!q="+j.host;
  						
  						// set it 
  						$("#results").set('innerHTML',j.html).removeClass('loading').setStyle('opacity',1);
